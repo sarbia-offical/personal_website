@@ -1,22 +1,19 @@
 @use '../../styles/mixins.scss' as mixins;
 
-.top{
+.top {
     position: relative;
     height: 100vh;
-    background-image: linear-gradient(to bottom, 
-        var(--themeColor) 0%,
-        var(--background) 100%
-    );
+    background-image: linear-gradient(to bottom, var(--themeColor) 0%, var(--background) 100%);
     & {
         @include mixins.df-aic-jcc();
     }
-    &_lines{
+    &_lines {
         position: absolute;
         width: 100vw;
         height: 100%;
         overflow: hidden;
         z-index: 1;
-        & > div{
+        & > div {
             position: absolute;
             width: 120vw;
             background: linear-gradient(90deg, #00000000, #ab352a);
@@ -25,30 +22,30 @@
             animation: move_line 10s linear infinite;
             @include mixins.transformPixel(height, 1, 1, 1);
         }
-        & > div:first-child{
+        & > div:first-child {
             top: 10%;
-            transform: rotate(-20deg)
+            transform: rotate(-20deg);
         }
-        & > div:nth-child(2){
+        & > div:nth-child(2) {
             left: -50%;
             transform: rotate(-60deg);
             animation-delay: -2s;
-            @include mixins.mobile{
+            @include mixins.mobile {
                 & {
                     display: none;
                 }
             }
         }
-        & > div:nth-child(3){
+        & > div:nth-child(3) {
             left: 5%;
             top: 15%;
             transform: rotate(30deg);
             animation-delay: -5s;
         }
-        & > div:nth-child(4){
+        & > div:nth-child(4) {
             bottom: 20%;
             transform: rotate(-5deg);
-            animation-delay: 5s
+            animation-delay: 5s;
         }
         & {
             @include mixins.df-aic-jcc();
@@ -56,31 +53,35 @@
     }
     @keyframes move_line {
         0% {
-            background-position: 200% 0
+            background-position: 200% 0;
         }
-    
+
         to {
-            background-position: 0 0
+            background-position: 0 0;
         }
     }
-    &_inner{
+    &_inner {
         text-align: center;
         margin: 0 auto;
         position: relative;
         z-index: 2;
-        transition: all .5s ease;
+        transition: all 0.5s ease;
         @include mixins.fontMax(bold);
         @include mixins.transformPixel(max-width, 1500, 750, 360);
-        &_title{
-            &:nth-child(2){
+        &_title {
+            &:nth-child(2) {
                 color: var(--themeColor);
-                transition: all .2s linear;
-                &:hover{
+                transition: all 0.2s linear;
+                &:hover {
                     & {
                         @include mixins.textShadow();
                     }
                 }
-                text-shadow: calc(2px * cos(15deg)) calc(2px * sin(15deg)) 1px var(--foreground), 1px 1px 1px var(--foreground), 1px 1px 1px var(--foreground), 1px 1px 1px var(--foreground);
+                text-shadow:
+                    calc(2px * cos(15deg)) calc(2px * sin(15deg)) 1px var(--foreground),
+                    1px 1px 1px var(--foreground),
+                    1px 1px 1px var(--foreground),
+                    1px 1px 1px var(--foreground);
             }
         }
     }

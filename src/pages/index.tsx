@@ -9,11 +9,8 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
             <div className={'page'}>
-                <main className={'main'}>
-                    main
-                </main>
-                <footer className={'footer'}>
-                </footer>
+                <main className={'main'}>main</main>
+                <footer className={'footer'}></footer>
             </div>
         </>
     );

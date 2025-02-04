@@ -1,6 +1,9 @@
-import React, { FC } from "react";
-import { DndWrapperProps } from "./type"
-import { DndContext, useSensors, useSensor, MouseSensor, TouchSensor } from "@dnd-kit/core";
+import type { FC } from 'react';
+
+import { DndContext, MouseSensor, TouchSensor, useSensor, useSensors } from '@dnd-kit/core';
+import React from 'react';
+
+import type { DndWrapperProps } from './type';
 
 const DragRectWrapper: FC<DndWrapperProps> = (props: DndWrapperProps) => {
     const { children, onDragStart, onDragOver, onDragEnd, onDragCancel, ...otherProps } = props;
@@ -16,20 +19,20 @@ const DragRectWrapper: FC<DndWrapperProps> = (props: DndWrapperProps) => {
                 delay: 1000,
                 tolerance: 5,
             },
-        })
+        }),
     );
     return (
         <DndContext
-            autoScroll={true}
+            autoScroll
             sensors={sensors}
             onDragStart={onDragStart}
             onDragOver={onDragOver}
             onDragEnd={onDragEnd}
             onDragCancel={onDragCancel}
-            { ...otherProps }
+            {...otherProps}
         >
             {children}
         </DndContext>
-    );   
-}
+    );
+};
 export default DragRectWrapper;

@@ -1,9 +1,9 @@
+import { DragOverlay } from '@dnd-kit/core';
+import { useEffect, useState } from 'react';
 // DragOverlayWrapper.tsx
 import { createPortal } from 'react-dom';
-import { DragOverlay } from '@dnd-kit/core';
-import { DragOverlayWrapperProps } from './type';
-import { useEffect, useState } from 'react';
 
+import type { DragOverlayWrapperProps } from './type';
 
 const DragOverlayWrapper: React.FC<DragOverlayWrapperProps> = (props: DragOverlayWrapperProps) => {
     const { children, ...otherProps } = props;
@@ -11,23 +11,14 @@ const DragOverlayWrapper: React.FC<DragOverlayWrapperProps> = (props: DragOverla
 
     // 在客户端渲染后设置状态
     useEffect(() => {
-      setIsClient(true);
+        setIsClient(true);
     }, []);
-  
+
     if (!isClient) {
-      return null; // 在服务器端不渲染
+        return null; // 在服务器端不渲染
     }
     return (
-        <>
-            {createPortal(
-                <DragOverlay
-                    { ...otherProps }
-                >
-                    { children }
-                </DragOverlay>,
-                document.body
-            )}
-        </>
+        <>{createPortal(<DragOverlay {...otherProps}>{children}</DragOverlay>, document.body)}</>
     );
 };
 

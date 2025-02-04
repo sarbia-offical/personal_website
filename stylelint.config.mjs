@@ -11,7 +11,6 @@ export default {
     rules: {
         'selector-id-pattern': null,
         'no-invalid-double-slash-comments': null,
-        'at-rule-no-unknown': null, // 关闭默认规则
         'scss/at-rule-no-unknown': true, // 启用 SCSS 专用规则
         'import-notation': 'string', // 使用string方式引入其它css文件，而不是url()
         'selector-type-no-unknown': null,
@@ -46,7 +45,7 @@ export default {
                     'each',
                     'while',
                     'extend',
-                    'use'
+                    'use',
                 ],
             },
         ],

@@ -1,7 +1,7 @@
 @use '../../../styles/mixins.scss' as mixins;
-.drag_mask{
+.drag_mask {
     position: absolute;
-    left: 50%;  
+    left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
@@ -10,7 +10,7 @@
     @include mixins.transformPixel(width, 100, 40, 40);
 }
 
-.drag_mask img{
+.drag_mask img {
     will-change: transform;
     transition: all 0.1s linear;
 }

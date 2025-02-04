@@ -1,8 +1,8 @@
-.outer_layout{
+.outer_layout {
     background-color: var(--background);
     width: 100vw;
 }
-.cursor{
+.cursor {
     position: fixed;
     left: 0%;
     top: 0%;
@@ -23,8 +23,8 @@
         font-size: 20px;
         font-weight: 300;
         transition: transform 0.3s;
-        &::after{
-            content: "";
+        &::after {
+            content: '';
             position: absolute;
             width: 10px;
             height: 10px;

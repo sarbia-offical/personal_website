@@ -1,8 +1,9 @@
-import { UniqueIdentifier } from "@dnd-kit/core";
-import { SizeEnum } from "./constant";
+import type { UniqueIdentifier } from '@dnd-kit/core';
 
-export interface CardItems{
-    id: UniqueIdentifier,
-    size: SizeEnum,
-    componentId?: string
+import type { SizeEnum } from './constant';
+
+export interface CardItems {
+    id: UniqueIdentifier;
+    size: SizeEnum;
+    componentId?: string;
 }

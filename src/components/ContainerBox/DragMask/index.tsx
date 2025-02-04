@@ -1,10 +1,13 @@
-import { useEffect, useRef } from "react";
-import $styles from "./index.module.scss"
-import { useCursorDirection } from "@/hooks/useCursorDirection";
-import { HTMLMotionProps, motion } from "framer-motion";
+import type { HTMLMotionProps } from 'framer-motion';
+
+import { useCursorDirection } from '@/hooks/useCursorDirection';
+import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+
+import $styles from './index.module.scss';
 interface DragMaskProps {
-    style?: React.CSSProperties,
-    children: React.ReactNode
+    style?: React.CSSProperties;
+    children: React.ReactNode;
 }
 
 const motionSetting: HTMLMotionProps<'div'> = {
@@ -19,11 +22,11 @@ const motionSetting: HTMLMotionProps<'div'> = {
             opacity: 1,
             transition: {
                 duration: 1,
-                ease: 'linear'
-            }
-        }
-    }
-}
+                ease: 'linear',
+            },
+        },
+    },
+};
 
 const DragMask = (props: DragMaskProps) => {
     const { children, style } = props;
@@ -31,7 +34,7 @@ const DragMask = (props: DragMaskProps) => {
     const { cursorAngle } = useCursorDirection();
     useEffect(() => {
         if (cursorRef.current) {
-            const ele = (cursorRef.current as unknown as HTMLImageElement);
+            const ele = cursorRef.current as unknown as HTMLImageElement;
             if (ele && cursorAngle) {
                 ele.style.transform = `rotate(${cursorAngle}deg)`;
             }
@@ -40,11 +43,11 @@ const DragMask = (props: DragMaskProps) => {
     return (
         <>
             <motion.div className={$styles.drag_mask} style={{ ...style }} {...motionSetting}>
-                <img ref={cursorRef} alt="Cursor Hand" src={"/assets/svg/rotating-cursor.svg"}/>
+                <img ref={cursorRef} alt="Cursor Hand" src={'/assets/svg/rotating-cursor.svg'} />
             </motion.div>
             {children}
         </>
-    )
-}
+    );
+};
 
 export default DragMask;

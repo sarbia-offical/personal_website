@@ -1,9 +1,9 @@
 @use '../../../styles/mixins.scss' as mixins;
-.item{
+.item {
     box-sizing: border-box;
     color: #171717;
     @include mixins.transformPixel(padding, 7, 5, 3);
-    &_inner{
+    &_inner {
         position: relative; /* relative */
         width: 100%;
         height: 100%;
@@ -16,26 +16,26 @@
     }
 }
 
-.drag_grab{
+.drag_grab {
     cursor: grab;
     touch-action: manipulation;
 }
-.drag_grabbing{
+.drag_grabbing {
     cursor: grabbing;
-    & > .item_inner{
+    & > .item_inner {
         border: 1px dotted #232222;
     }
 }
 
-.item_small{
+.item_small {
     @include mixins.transformPixel(width, 375, 375, 180);
     @include mixins.transformPixel(height, 375, 375, 180);
 }
-.item_middle{
+.item_middle {
     @include mixins.transformPixel(width, 750, 375, 180);
     @include mixins.transformPixel(height, 375, 375, 180);
 }
-.item_large{
+.item_large {
     @include mixins.transformPixel(width, 1500, 750, 360);
     @include mixins.transformPixel(height, 550, 375, 180);
 }

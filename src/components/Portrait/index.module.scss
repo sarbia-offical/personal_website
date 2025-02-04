@@ -1,11 +1,11 @@
-.svg{
+.svg {
     fill: none;
     position: absolute;
     top: 0;
     right: 0;
     width: 100%;
     height: 100%;
-    path{
+    path {
         stroke-width: 3px;
         stroke: var(--themeColor);
         transition: stroke-dashoffset 0.3s linear;

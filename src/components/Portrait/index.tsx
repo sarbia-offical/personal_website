@@ -1,24 +1,35 @@
-import { FC, useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import $styles from "./index.module.scss"
+import type { FC } from 'react';
 
-interface IPortrait{
-	loadingRate: number
+import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+
+import $styles from './index.module.scss';
+
+interface IPortrait {
+    loadingRate: number;
 }
 
 const Portrait: FC<IPortrait> = (props: IPortrait) => {
-	const { loadingRate } = props;
-	const svgPathElement = useRef<SVGPathElement>(null);
-	const [scrollProgress, setScrollProgress] = useState<number>(0);
-	
-	useEffect(() => {
-		setScrollProgress(loadingRate);
-	}, [ loadingRate])
+    const { loadingRate } = props;
+    const svgPathElement = useRef<SVGPathElement>(null);
+    const [scrollProgress, setScrollProgress] = useState<number>(0);
 
-	return (
-		<motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="450 350 1400 900" className={$styles.svg}>
-			<motion.path transform="scale(2)" initial={{ pathLength: 0 }} // 初始路径长度为0
-          animate={{ pathLength: scrollProgress }} ref={svgPathElement} d="M866.6,142.8c-21.1,8.3-25.9,33-29.4,52.9c-2.1,12.1-4,24.6-9.7,35.6c-6.4,12.5-17.7,20.5-31.3,23.4
+    useEffect(() => {
+        setScrollProgress(loadingRate);
+    }, [loadingRate]);
+
+    return (
+        <motion.svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="450 350 1400 900"
+            className={$styles.svg}
+        >
+            <motion.path
+                transform="scale(2)"
+                initial={{ pathLength: 0 }} // 初始路径长度为0
+                animate={{ pathLength: scrollProgress }}
+                ref={svgPathElement}
+                d="M866.6,142.8c-21.1,8.3-25.9,33-29.4,52.9c-2.1,12.1-4,24.6-9.7,35.6c-6.4,12.5-17.7,20.5-31.3,23.4
 					c-17.3,3.8-35.6,0.3-52.6-3.6c17.2,1.1,26.8-19.2,21.7-33.7c-8.1-23.8-37.1-31.8-60.1-33.1c11-1.9,22-3.9,33-5.8
 					c-15.1-22-42.1-33-67.9-30.5c9.4-2.3,18.8-4.6,28.1-7c-20.3-24.5-60.3-24.5-82.9-4c0.3-0.1,4.9-4.6,0,0c0.3-0.1,5.1-2.4,4.6-3
 					c-0.7-0.7-4.2,2.7-4.6,3c6-2.5,3.1-9.6-0.4-13c-5.2-4.9-14.3-5.6-21-6.6c-18.5-2.7-36.8-5.1-55.6-4.5
@@ -77,9 +88,10 @@ const Portrait: FC<IPortrait> = (props: IPortrait) => {
 					c-0.5-0.6-1.5-0.4-1.8,0.3c-6.3,14.2-2.1,32.5,9.8,42.5c0.5,0.5,0.5,1.3-0.1,1.7c-14.9,10.3-24.8,27.5-26.3,45.5
 					c-0.1,0.7,0.6,1.3,1.3,1.2c5.3-0.9,10-4.5,12.1-9.4c-4.9,7.5-5.9,18.5-1.9,27.5c6,13,14,23,20,35.9c0,0,0,0.1,0,0.1
 					c2,6,6,14,1,19.9c-3,3-7,0-9-3c0,0,0-0.1-0.1-0.1c-7-12-10-27.9-23.9-33.9c0,0-0.1,0-0.1,0c-11-4-21.9,1-26.9,11
-					c0,0,0,0.1-0.1,0.1c-4,10-4,21-1,30.9c7,24,14,48,12.7,73.1l0.1-1.1c-4,26.8-9,53.1-20,77.9c-11,24.8-30,47.3-55.6,56.5"/>
-		</motion.svg>
-	)
-}
+					c0,0,0,0.1-0.1,0.1c-4,10-4,21-1,30.9c7,24,14,48,12.7,73.1l0.1-1.1c-4,26.8-9,53.1-20,77.9c-11,24.8-30,47.3-55.6,56.5"
+            />
+        </motion.svg>
+    );
+};
 
 export default Portrait;

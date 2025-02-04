@@ -1,8 +1,9 @@
-import { FC } from "react";
-import $styles from "./index.module.scss"
+import type { FC } from 'react';
+
+import $styles from './index.module.scss';
 
 export interface IProps {
-    reverseImg?: string
+    reverseImg?: string;
 }
 
 const Reverse: FC<IProps> = (props: IProps) => {
@@ -11,12 +12,10 @@ const Reverse: FC<IProps> = (props: IProps) => {
     return (
         <div className={$styles.reverse}>
             <div className={$styles.reverse_img}>
-                {
-                    reverseImg ? <img src={`/assets/img/${reverseImg}`} /> : <></>
-                }
+                {reverseImg ? <img src={`/assets/img/${reverseImg}`} alt="reverse" /> : <></>}
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Reverse;

@@ -31,26 +31,22 @@
 
 // 转换 px
 @mixin transformPixel($field, $pc: 0, $pad: 0, $mobile: 0) {
-    @if math.unit($pc)=='%' {
+    @if math.unit($pc) == '%' {
         & {
             #{$field}: $pc;
         }
-    }
-
-    @else {
+    } @else {
         & {
             #{$field}: functions.vw($pc);
         }
     }
 
     @include pad {
-        @if math.unit($pad)=='%' {
+        @if math.unit($pad) == '%' {
             & {
                 #{$field}: $pad;
             }
-        }
-
-        @else {
+        } @else {
             & {
                 #{$field}: functions.vwt($pad);
             }
@@ -58,13 +54,11 @@
     }
 
     @include mobile {
-        @if math.unit($mobile)=='%' {
+        @if math.unit($mobile) == '%' {
             & {
                 #{$field}: $mobile;
             }
-        }
-
-        @else {
+        } @else {
             & {
                 #{$field}: functions.vwm($mobile);
             }
@@ -102,12 +96,12 @@
 }
 
 // 统一上间距
-@mixin mTop{
+@mixin mTop {
     @include transformPixel(margin-top, 85, 40, 30);
 }
 
 // 统一文字阴影
-@mixin textShadow{
+@mixin textShadow {
     & {
         box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
     }
@@ -123,13 +117,11 @@
     & {
         @include transformPixel(font-size, 44, 40, 36);
     }
-    
 
     @if $bold ==bold {
         & {
             @include fontBold;
         }
-        
     }
 }
 

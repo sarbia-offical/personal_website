@@ -1,19 +1,15 @@
-import { FC } from "react"
-import $styles from "./index.module.scss"
-import React from "react";
+import type { FC } from 'react';
 
-export interface IProps{
-    title: string
+import React from 'react';
+
+import $styles from './index.module.scss';
+
+export interface IProps {
+    title: string;
 }
 
 const BoxHeader: FC<IProps> = (props: IProps) => {
-    return (
-        <p className={$styles.header}>
-            {
-                props.title
-            }
-        </p>
-    )
-}
+    return <p className={$styles.header}>{props.title}</p>;
+};
 
 export default BoxHeader;

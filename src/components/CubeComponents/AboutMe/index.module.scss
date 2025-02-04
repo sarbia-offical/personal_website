@@ -1,25 +1,25 @@
-@use "../../../styles/mixins.scss" as mixins;
+@use '../../../styles/mixins.scss' as mixins;
 
-.about_me{
+.about_me {
     height: 100%;
 }
-.link{
+.link {
     font-weight: bold;
     position: relative;
     color: var(--themeColor);
-    &::after{
-        content: "";
+    &::after {
+        content: '';
         position: absolute;
         left: 0;
         bottom: 0;
         height: 1px;
         width: 0%;
         background-color: var(--themeColor);
-        transition: all .2s linear;
+        transition: all 0.2s linear;
     }
 }
-.link:hover{
-    &::after{
+.link:hover {
+    &::after {
         width: 100%;
     }
 }

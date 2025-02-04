@@ -39,30 +39,30 @@
     background-color: var(--themeColor);
     background-size: 40px 40px;
     background-image: linear-gradient(
-      45deg,
-      var(--foreground) 30%,
-      var(--themeColor) 30%,
-      var(--themeColor) 34%,
-      transparent 34%,
-      transparent 46%,
-      var(--themeColor) 46%,
-      var(--themeColor) 50%,
-      var(--foreground) 50%,
-      var(--foreground) 80%,
-      var(--themeColor) 80%,
-      var(--themeColor) 84%,
-      transparent 84%,
-      transparent 96%,
-      var(--themeColor) 96%,
-      var(--themeColor)
+        45deg,
+        var(--foreground) 30%,
+        var(--themeColor) 30%,
+        var(--themeColor) 34%,
+        transparent 34%,
+        transparent 46%,
+        var(--themeColor) 46%,
+        var(--themeColor) 50%,
+        var(--foreground) 50%,
+        var(--foreground) 80%,
+        var(--themeColor) 80%,
+        var(--themeColor) 84%,
+        transparent 84%,
+        transparent 96%,
+        var(--themeColor) 96%,
+        var(--themeColor)
     );
 
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
     transition: all 200ms ease;
 }
-.animate_lr{
+.animate_lr {
     animation: progress-bar-animate-rl 1s linear infinite;
 }
-.animate_rl{
+.animate_rl {
     animation: progress-bar-animate-lr 1s linear infinite;
 }

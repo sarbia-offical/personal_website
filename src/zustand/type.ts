@@ -1,12 +1,12 @@
-export type Position = {
+export interface Position {
     left: number;
     top: number;
-};
+}
 
 export enum CursorPointType {
     'HideCursorPoint',
     'LongPress',
-    'normal'
+    'normal',
 }
 
 /**

@@ -1,6 +1,6 @@
-@use "../../../../styles/mixins.scss" as mixins;
+@use '../../../../styles/mixins.scss' as mixins;
 
-.content_area{
+.content_area {
     position: relative;
     height: 100%;
     display: flex;
@@ -14,8 +14,8 @@
 
     &_desc {
         display: inline;
-        transition: box-shadow .2s linear;
-        font-family: "Hoefler Text", Georgia, Garamond, Times, serif;
+        transition: box-shadow 0.2s linear;
+        font-family: 'Hoefler Text', Georgia, Garamond, Times, serif;
         font-style: italic;
     }
 
@@ -74,7 +74,7 @@
     width: 45%;
     height: 100%;
     z-index: 1;
-    transition: font-size .2s linear;
+    transition: font-size 0.2s linear;
     background-color: #ffffff;
     & {
         @include mixins.transformPixel(border-radius, 30, 20, 10);

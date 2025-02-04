@@ -1,9 +1,11 @@
-import { FC } from "react";
-import dynamic from "next/dynamic";
-import $styles from "./index.module.scss"
+import type { FC } from 'react';
 
-export interface IProps{
-    iconPath: string
+import dynamic from 'next/dynamic';
+
+import $styles from './index.module.scss';
+
+export interface IProps {
+    iconPath: string;
 }
 
 const Icon: FC<IProps> = (props: IProps) => {
@@ -11,9 +13,9 @@ const Icon: FC<IProps> = (props: IProps) => {
     const Icon = dynamic(() => import(`@@/public/assets/svg/${iconPath}`));
     return (
         <div className={$styles.icon}>
-            <Icon/>
+            <Icon />
         </div>
-    )
-}
+    );
+};
 
 export default Icon;

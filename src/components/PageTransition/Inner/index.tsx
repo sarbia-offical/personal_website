@@ -1,7 +1,10 @@
-import { FC, ReactNode } from "react"
-import $styles from "./index.module.scss"
-import { motion, Variant, HTMLMotionProps } from "framer-motion";
-import { slide, perspective, opacity } from "./animation"
+import type { HTMLMotionProps, Variant } from 'framer-motion';
+import type { FC, ReactNode } from 'react';
+
+import { motion } from 'framer-motion';
+
+import { opacity, perspective, slide } from './animation';
+import $styles from './index.module.scss';
 
 const animationFunc: (variants: Variant) => HTMLMotionProps<'div'> = (variants) => {
     return {
@@ -9,21 +12,19 @@ const animationFunc: (variants: Variant) => HTMLMotionProps<'div'> = (variants) 
         animate: 'enter',
         exit: 'exit',
         variants: {
-            ...variants
-        }
-    }
-}
+            ...variants,
+        },
+    };
+};
 
 const Inner: FC<{ children: ReactNode }> = ({ children }) => {
     return (
         <div className={$styles.inner}>
             <motion.div className={$styles.slide} {...animationFunc(slide)}></motion.div>
             <motion.div className={$styles.page} {...animationFunc(perspective)}>
-                <motion.div {...animationFunc(opacity)}>
-                    { children }
-                </motion.div>
+                <motion.div {...animationFunc(opacity)}>{children}</motion.div>
             </motion.div>
         </div>
-    )
-}
+    );
+};
 export default Inner;

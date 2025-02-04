@@ -1,6 +1,6 @@
 @use '../../styles/mixins.scss' as mixins;
 
-.cursor{
+.cursor {
     position: fixed;
     left: 0%;
     top: 0%;
@@ -21,12 +21,12 @@
         border-radius: 50%;
         font-weight: 300;
         overflow: hidden;
-        &{
+        & {
             @include mixins.transformPixel(width, 50, 50, 40);
-            @include mixins.transformPixel(height, 50, 50, 40)
+            @include mixins.transformPixel(height, 50, 50, 40);
         }
-        &::after{
-            content: "";
+        &::after {
+            content: '';
             position: absolute;
             width: 10px;
             height: 10px;
@@ -35,18 +35,18 @@
             top: 50%;
             transform: translate(-50%, -50%);
             background-color: var(--themeColor);
-            transition: all .8s linear;
+            transition: all 0.8s linear;
         }
     }
 }
-.cursor_long_press{
-    .cursor_inner{
-        &::after{
+.cursor_long_press {
+    .cursor_inner {
+        &::after {
             width: 110%;
             height: 110%;
         }
     }
 }
-.cursor_hide{
+.cursor_hide {
     opacity: 0;
 }

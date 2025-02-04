@@ -1,7 +1,7 @@
 export const perspective = {
     init: {
         scale: 1,
-        y: 0
+        y: 0,
     },
     enter: {
         scale: 1,
@@ -11,11 +11,11 @@ export const perspective = {
         scale: 0.2,
         opacity: 0.5,
         transition: {
-            duration: .6,
-            ease: 'linear'
-        }
-    }
-}
+            duration: 0.6,
+            ease: 'linear',
+        },
+    },
+};
 
 export const slide = {
     initial: {
@@ -30,24 +30,24 @@ export const slide = {
         y: '0',
         opacity: 1,
         transition: {
-            duration: .5,
-            ease: [0.76, 0, 0.24, 1]
+            duration: 0.5,
+            ease: [0.76, 0, 0.24, 1],
         },
-    }
-}
+    },
+};
 
 export const opacity = {
     initial: {
-        opacity: 0
+        opacity: 0,
     },
     enter: {
         opacity: 1,
         transition: {
-            duration: .7,
-            ease: 'linear'
-        }
+            duration: 0.7,
+            ease: 'linear',
+        },
     },
     exit: {
-        opacity: 1
-    }
-}
+        opacity: 1,
+    },
+};
