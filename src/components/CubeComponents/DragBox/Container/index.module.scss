@@ -1,0 +1,43 @@
+@use "../../../../styles/mixins.scss" as mixins;
+
+.viewport{
+    width: 100%;
+    height: 100%;
+}
+.container {
+    height: 100%;
+    width: 100%;
+    svg {
+        position: absolute;
+        width: 45%;
+        height: 45%;
+
+        &:nth-child(1) {
+            left: 20%;
+            top: 20%;
+            transform: translate(-20%, -20%);
+        }
+
+        &:nth-child(2) {
+            left: 80%;
+            top: 80%;
+            transform: translate(-80%, -80%) rotate(180deg);
+        }
+    }
+
+    &_icons {
+        position: relative;
+        height: 70%;
+        width: 70%;
+        margin: 0 auto;
+        margin-top: 3%;
+
+        .rotate_box {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: rotate .2s linear;
+            // border-radius: 50%;
+        }
+    }
+}

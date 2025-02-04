@@ -1,0 +1,22 @@
+.cardMovement {
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #48bb78;
+    border-right: 4px solid;
+}
+
+.cardMovementInner {
+    position: fixed;
+    top: 0;
+    z-index: 30;
+    width: 100%;
+    height: 100vh;
+    background-color: #2f855a;
+    border-right: 4px solid;
+}

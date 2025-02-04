@@ -1,0 +1,166 @@
+@use 'sass:math';
+@use './function.scss' as functions;
+
+@mixin mobile {
+    @media screen and (width <=767px) {
+        & {
+            @content;
+        }
+    }
+}
+
+@mixin pc {
+    @media screen and (width >=1201px) {
+        & {
+            @content;
+        }
+    }
+}
+
+@mixin pad {
+    @media screen and (width >=768px) and (width <=1200px) {
+        & {
+            @content;
+        }
+    }
+}
+
+@mixin transition($field, $time: 0.3s, $fn: ease) {
+    transition: $field $time $fn;
+}
+
+// 转换 px
+@mixin transformPixel($field, $pc: 0, $pad: 0, $mobile: 0) {
+    @if math.unit($pc)=='%' {
+        & {
+            #{$field}: $pc;
+        }
+    }
+
+    @else {
+        & {
+            #{$field}: functions.vw($pc);
+        }
+    }
+
+    @include pad {
+        @if math.unit($pad)=='%' {
+            & {
+                #{$field}: $pad;
+            }
+        }
+
+        @else {
+            & {
+                #{$field}: functions.vwt($pad);
+            }
+        }
+    }
+
+    @include mobile {
+        @if math.unit($mobile)=='%' {
+            & {
+                #{$field}: $mobile;
+            }
+        }
+
+        @else {
+            & {
+                #{$field}: functions.vwm($mobile);
+            }
+        }
+    }
+}
+
+@mixin ellipsisOneLine {
+    & {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+// 超出n行省略
+@mixin ellipsis($row: 2) {
+    & {
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: $row;
+        -webkit-box-orient: vertical;
+    }
+}
+
+// 弹性盒子，上下左右居中
+@mixin df-aic-jcc {
+    & {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @content;
+    }
+}
+
+// 统一上间距
+@mixin mTop{
+    @include transformPixel(margin-top, 85, 40, 30);
+}
+
+// 统一文字阴影
+@mixin textShadow{
+    & {
+        box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
+    }
+}
+
+// font
+@mixin fontBold {
+    font-weight: bold;
+}
+
+// 使用场景如：banner内标题
+@mixin fontMax($bold: null) {
+    & {
+        @include transformPixel(font-size, 44, 40, 36);
+    }
+    
+
+    @if $bold ==bold {
+        & {
+            @include fontBold;
+        }
+        
+    }
+}
+
+@mixin fontBig($bold: null) {
+    @include transformPixel(font-size, 32, 29, 26);
+
+    @if $bold ==bold {
+        @include fontBold;
+    }
+}
+
+@mixin fontMiddle($bold: null) {
+    @include transformPixel(font-size, 28, 25, 22);
+
+    @if $bold ==bold {
+        @include fontBold;
+    }
+}
+
+@mixin fontSmall($bold: null) {
+    @include transformPixel(font-size, 18, 16, 10);
+
+    @if $bold ==bold {
+        @include fontBold;
+    }
+}
+
+@mixin fontMin($bold: null) {
+    @include transformPixel(font-size, 12, 10, 6);
+
+    @if $bold ==bold {
+        @include fontBold;
+    }
+}

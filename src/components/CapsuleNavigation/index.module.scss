@@ -1,0 +1,56 @@
+@use '../../styles/mixins.scss' as mixins;
+.header {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 999;
+    cursor: pointer;
+    @include mixins.transformPixel(bottom, 25, 15, 10);
+  }
+  
+  .navbar {
+    background-color: rgba(230, 230, 230, 0.6);
+    border: 0.3rem transparent;
+    backdrop-filter: blur(12px);
+    overflow: hidden;
+    color: var(--background);
+    font-weight: 500;
+    & {
+      @include mixins.transformPixel(border-radius, 30, 30, 30);
+    }
+  }
+  
+  .linkContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    @include mixins.df-aic-jcc();
+    a{
+      display: block;
+      position: relative;
+      text-align: center;
+      cursor: pointer;
+      @include mixins.transformPixel(height, 60, 40, 40);
+      @include mixins.transformPixel(line-height, 60, 40, 40);
+      @include mixins.transformPixel(width, 110, 90, 70);
+      @include mixins.fontSmall();
+    }
+    .activeHref{
+      position: absolute;
+      color: var(--foreground);
+      background-color: var(--themeColor);
+      text-align: center;
+      cursor: pointer;
+      left: 2px;
+      transition: all .2s ease-in-out;
+      @include mixins.transformPixel(border-radius, 30, 30, 30);
+      @include mixins.transformPixel(top, 2, 2, 2);
+      @include mixins.transformPixel(height, 56, 36, 36);
+      @include mixins.transformPixel(line-height, 56, 36, 36);
+      @include mixins.transformPixel(width, 110, 90, 70);
+      @include mixins.fontSmall();
+    }
+  }
+  

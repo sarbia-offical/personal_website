@@ -1,0 +1,52 @@
+@use '../../styles/mixins.scss' as mixins;
+
+.cursor{
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    pointer-events: none;
+    opacity: 1;
+    z-index: 9;
+    transition: all 0.2s linear;
+    color: black;
+    &_inner {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(-50%, -50%) scale(0.7);
+        width: 70px;
+        height: 70px;
+        border: 2px solid var(--themeColor);
+        border-radius: 50%;
+        font-weight: 300;
+        overflow: hidden;
+        &{
+            @include mixins.transformPixel(width, 50, 50, 40);
+            @include mixins.transformPixel(height, 50, 50, 40)
+        }
+        &::after{
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--themeColor);
+            transition: all .8s linear;
+        }
+    }
+}
+.cursor_long_press{
+    .cursor_inner{
+        &::after{
+            width: 110%;
+            height: 110%;
+        }
+    }
+}
+.cursor_hide{
+    opacity: 0;
+}

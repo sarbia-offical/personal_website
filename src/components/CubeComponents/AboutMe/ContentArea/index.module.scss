@@ -1,0 +1,100 @@
+@use "../../../../styles/mixins.scss" as mixins;
+
+.content_area{
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.self_introduction {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    color: var(--background);
+
+    &_desc {
+        display: inline;
+        transition: box-shadow .2s linear;
+        font-family: "Hoefler Text", Georgia, Garamond, Times, serif;
+        font-style: italic;
+    }
+
+    &_marks {
+        position: relative;
+        display: inline-block;
+
+        & {
+            @include mixins.transformPixel(height, 20, 14, 8);
+            @include mixins.transformPixel(width, 10, 8, 8);
+        }
+
+        &::before {
+            content: '”';
+            position: absolute;
+            color: var(--themeColor);
+            @include mixins.fontMiddle();
+            @include mixins.transformPixel(top, -10%, -20%, -80%);
+            @include mixins.transformPixel(left, 40%, 50%, 50%);
+        }
+    }
+
+    &::before {
+        content: '“';
+        position: absolute;
+        color: var(--themeColor);
+        @include mixins.fontMiddle();
+        @include mixins.transformPixel(top, -2%, -3%, -7%);
+        @include mixins.transformPixel(left, -5%, -6%, -10%);
+    }
+
+    & {
+        @include mixins.fontSmall();
+    }
+
+    & {
+        @include mixins.pad {
+            width: 80%;
+            height: 50%;
+            @include mixins.fontMin();
+        }
+    }
+
+    & {
+        @include mixins.mobile {
+            width: 90%;
+            height: 50%;
+            @include mixins.fontMin();
+        }
+    }
+}
+
+.portrait {
+    position: absolute;
+    right: 55%;
+    width: 45%;
+    height: 100%;
+    z-index: 1;
+    transition: font-size .2s linear;
+    background-color: #ffffff;
+    & {
+        @include mixins.transformPixel(border-radius, 30, 20, 10);
+        @include mixins.textShadow();
+    }
+    & {
+        @include mixins.mobile {
+            width: 49%;
+            height: 49%;
+            top: 50%;
+            right: 50%;
+        }
+    }
+
+    & {
+        @include mixins.pad {
+            width: 60%;
+            height: 60%;
+            top: 40%;
+            right: 40%;
+        }
+    }
+}
