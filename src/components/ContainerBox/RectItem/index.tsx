@@ -16,7 +16,7 @@ interface RectItemProps {
 
 const RectItem = (props: RectItemProps) => {
     const { id, activeId, direction, children, size } = props;
-    const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
+    const { listeners, setNodeRef, transform, transition } = useSortable({
         id
     });
     return (
