@@ -18,13 +18,13 @@ const About: FC = () => {
                 <meta property="og:title" content="personal website" />
                 <meta property="og:description" content="Welcome to my site" />
             </Head>
-            <Inner>
+            {/* <Inner> */}
                 <div className={$styles.container}>
                     Archive Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore, autem
                     unde fugit nesciunt necessitatibus itaque molestiae omnis! Neque velit, officiis
                     recusandae qui quia vero sapiente? Numquam facere laboriosam harum obcaecati?
                 </div>
-            </Inner>
+            {/* </Inner> */}
         </>
     );
 };
