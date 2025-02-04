@@ -10,7 +10,7 @@ const cubeList = {
                 "size": 'small',
                 "options": {
                     'text': {
-                        // "value": 'I have 6 years of front-end development experience. Based in Changsha, from Hunan, China. Tech stack: JavaScript (ES6), TypeScript, React.js, Next.js, MobX, Nest.js, TypeORM, and more.',
+                        // "value": 'I have 6 years of front-end development experience. Based in Changsha, from Hunan, China. Tech stack: JavaScript (ES6), TypeScript, React.js, Next.js, Zustand, Nest.js, TypeORM, and more.',
                         "value": "Hi, I have 6 years of front-end experience, based in Changsha/CN. I've developed the official websites of Colmo, websites of Midea, and the overseas SaaS of Meituan Peppr. Skilled in web development.",
                         "hide": false
                     }
@@ -23,7 +23,7 @@ const cubeList = {
                 "size": 'middle',
                 "options": {
                     'text': {
-                        // "value": 'I have 6 years of front-end development experience. Based in Changsha, from Hunan, China. Tech stack: JavaScript (ES6), TypeScript, React.js, Next.js, MobX, Nest.js, TypeORM, and more.',
+                        // "value": 'I have 6 years of front-end development experience. Based in Changsha, from Hunan, China. Tech stack: JavaScript (ES6), TypeScript, React.js, Next.js, Zustand, Nest.js, TypeORM, and more.',
                         "value": "Hi, I have 6 years of front-end experience, based in Changsha/CN. I've developed the official websites of [0], websites of [1], and the overseas SaaS of [2]. Skilled in web development.",
                         "hide": false
                     },
