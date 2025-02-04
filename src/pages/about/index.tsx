@@ -21,10 +21,10 @@ const About: FC = () => {
                 <meta property="og:description" content="Welcome to my site" />
             </Head>
             {/* <Inner> */}
-                <div className={$styles.container}>
-                    <Top />
-                    <ContainerBox />
-                </div>
+            <div className={$styles.container}>
+                <Top />
+                <ContainerBox />
+            </div>
             {/* </Inner> */}
             <MouseFollow />
         </>

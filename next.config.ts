@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
             use: ['@svgr/webpack'], // 使用 @svgr/webpack 处理
         });
         return config; // 返回更新后的配置
-    }
+    },
 };
 
 export default nextConfig;
