@@ -1,6 +1,5 @@
 import type { FC } from 'react';
 
-import Inner from '@/components/PageTransition/Inner';
 import Head from 'next/head';
 
 import $styles from './index.module.scss';

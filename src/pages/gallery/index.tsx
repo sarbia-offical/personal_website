@@ -1,7 +1,6 @@
 import type { FC } from 'react';
 
 import InfiniteGallery from '@/components/InfiniteGallery';
-import Inner from '@/components/PageTransition/Inner';
 import Head from 'next/head';
 import { useState } from 'react';
 

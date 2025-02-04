@@ -2,7 +2,6 @@ import type { FC } from 'react';
 
 import ContainerBox from '@/components/ContainerBox';
 import MouseFollow from '@/components/MouseFollow';
-import { Inner } from '@/components/PageTransition';
 import Head from 'next/head';
 
 import $styles from './index.module.scss';
