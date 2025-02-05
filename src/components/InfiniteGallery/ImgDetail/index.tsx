@@ -34,7 +34,7 @@ const ImgDetail: FC<IProps> = (props: IProps) => {
         >
             {imgVisible && (
                 <div className={$styles.img_card}>
-                    <Image src={imgData.img} width={300} height={450} alt="pic" />
+                    <Image src={imgData.imgSrc} width={300} height={450} alt="pic" />
                 </div>
             )}
         </div>

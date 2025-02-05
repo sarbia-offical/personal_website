@@ -105,6 +105,7 @@ const InfiniteGallery: FC<IProps> = (props: IProps) => {
                             const y = row * (IMG_HEIGHT + imgMargin) + yOffset;
                             _imgData.push({
                                 img: image,
+                                imgSrc: imgData[imgIndex],
                                 x,
                                 y,
                                 targetX: x,

@@ -11,6 +11,7 @@ export interface IProps {
 
 export interface IImageData {
     img: HTMLImageElement;
+    imgSrc: string;
     targetX: number;
     targetY: number;
     x: number;
