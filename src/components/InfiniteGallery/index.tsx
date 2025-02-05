@@ -216,7 +216,6 @@ const InfiniteGallery: FC<IProps> = (props: IProps) => {
         const { clientX, clientY } = e;
         const duration = performance.now() - mouseDownTime.current;
         if (duration < 200) {
-            console.log('click', clientX, clientY);
             checkImg(clientX, clientY);
         }
         setMoveable(false);
