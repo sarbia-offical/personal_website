@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-// import ContainerBox from '@/components/ContainerBox';
+import ContainerBox from '@/components/ContainerBox';
 import MouseFollow from '@/components/MouseFollow';
 import Head from 'next/head';
 
@@ -22,7 +22,7 @@ const About: FC = () => {
             </Head>
             <div className={$styles.container}>
                 <Top />
-                {/* <ContainerBox /> */}
+                <ContainerBox />
             </div>
             <MouseFollow />
         </>
