@@ -1,13 +1,15 @@
-import type { FC } from 'react';
-
 import ContainerBox from '@/components/ContainerBox';
 import MouseFollow from '@/components/MouseFollow';
 import Head from 'next/head';
+import { type FC, useEffect } from 'react';
 
 import $styles from './index.module.scss';
 import Top from './top';
 
 const About: FC = () => {
+    useEffect(() => {
+        console.log('About');
+    }, []);
     return (
         <>
             <Head>
