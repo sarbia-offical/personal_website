@@ -3,8 +3,7 @@ import type { FC, ReactNode } from 'react';
 
 import { useAppInfoContext } from '@/zustand/hooks';
 import { CursorPointType } from '@/zustand/type';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import type { HrefList, IHrefProps } from './type';
@@ -18,6 +17,7 @@ const CapsuleNavigation: FC<{ hrefList: HrefList; children?: ReactNode }> = ({
     const [linkTitle, setLinkTitle] = useState<string>('loading...');
     const activeRef = useRef<HTMLDivElement>(null);
     const [left, setLeft] = useState<number>(2);
+    const router = useRouter();
     const pathName = usePathname();
     const changeHideCursorPoint = useAppInfoContext(
         (state: AppInfoState) => state.changePointerStatus,
@@ -39,6 +39,14 @@ const CapsuleNavigation: FC<{ hrefList: HrefList; children?: ReactNode }> = ({
         changeHideCursorPoint(CursorPointType.normal);
     }, []);
 
+    const handleJumpPage = useCallback(
+        (href: string) => {
+            console.log('href', href);
+            router.push(href);
+        },
+        [router],
+    );
+
     return (
         <div className={$styles.header}>
             <nav
@@ -48,9 +56,15 @@ const CapsuleNavigation: FC<{ hrefList: HrefList; children?: ReactNode }> = ({
             >
                 <div className={$styles.linkContainer}>
                     {hrefList.map((ele, index) => (
-                        <Link key={index} href={ele.href} className={$styles.linkActive}>
+                        <div
+                            className={$styles.link}
+                            key={index}
+                            onClick={() => {
+                                handleJumpPage(ele.href);
+                            }}
+                        >
                             {ele.title}
-                        </Link>
+                        </div>
                     ))}
                     <div
                         className={$styles.activeHref}

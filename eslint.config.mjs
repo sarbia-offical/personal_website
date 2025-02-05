@@ -1,7 +1,6 @@
 import antfu from '@antfu/eslint-config';
 import nextPlugin from '@next/eslint-plugin-next';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import jsxA11y from 'eslint-plugin-jsx-a11y';
 import perfectionist from 'eslint-plugin-perfectionist';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import unusedImports from 'eslint-plugin-unused-imports';
@@ -52,7 +51,6 @@ export default antfu(
             'react/no-forward-ref': 'off',
         },
     },
-    jsxA11y.flatConfigs.recommended,
     {
         plugins: {
             '@next/next': nextPlugin,
