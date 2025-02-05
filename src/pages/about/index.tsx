@@ -1,15 +1,16 @@
 import ContainerBox from '@/components/ContainerBox';
 import MouseFollow from '@/components/MouseFollow';
+import { DeviceEnum } from '@/hooks/type';
+import { useDeviceType } from '@/hooks/useDeviceType';
 import Head from 'next/head';
-import { type FC, useEffect } from 'react';
+import { type FC, useMemo } from 'react';
 
 import $styles from './index.module.scss';
 import Top from './top';
 
 const About: FC = () => {
-    useEffect(() => {
-        console.log('About');
-    }, []);
+    const deviceType = useDeviceType();
+    const isDeskTopDevice = useMemo(() => deviceType === DeviceEnum.DESKTOP, [deviceType]);
     return (
         <>
             <Head>
@@ -26,7 +27,7 @@ const About: FC = () => {
                 <Top />
                 <ContainerBox />
             </div>
-            <MouseFollow />
+            {isDeskTopDevice ? <MouseFollow /> : <></>}
         </>
     );
 };

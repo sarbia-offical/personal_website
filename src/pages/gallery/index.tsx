@@ -2,7 +2,7 @@ import type { FC } from 'react';
 
 import InfiniteGallery from '@/components/InfiniteGallery';
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import $styles from './index.module.scss';
 
@@ -12,9 +12,6 @@ const Gallery: FC = () => {
             .fill(null)
             .map((_, index) => `/assets/img/gallery/pic${index + 1}.webp`),
     );
-    useEffect(() => {
-        console.log('Gallery');
-    }, []);
     return (
         <>
             <Head>

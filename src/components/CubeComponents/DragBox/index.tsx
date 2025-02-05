@@ -16,10 +16,6 @@ const DragBox: FC<IComponentProps> = (props: IComponentProps) => {
             .map((_, index) => index * 0.1),
     });
 
-    /**
-     * 处理高频鼠标移动的节流函数
-     */
-
     return (
         <div className={$styles.drag_box} ref={dragBoxRef}>
             {inViewport ? <Container /> : <></>}

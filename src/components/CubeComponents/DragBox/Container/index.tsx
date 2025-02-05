@@ -82,8 +82,6 @@ const Container = () => {
             className={$styles.viewport}
             onMouseEnter={handlePointerEnter}
             onMouseLeave={handlePointerLeave}
-            onTouchStart={handlePointerEnter}
-            onTouchEnd={handlePointerLeave}
         >
             {inViewport ? (
                 <motion.div
