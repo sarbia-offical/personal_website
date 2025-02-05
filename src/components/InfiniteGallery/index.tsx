@@ -3,7 +3,8 @@ import type { FC } from 'react';
 import MouseFollow from '@/components/MouseFollow';
 import { DeviceEnum } from '@/hooks/type';
 import { useDeviceType } from '@/hooks/useDeviceType';
-import { throttle } from 'lodash';
+import { AnimatePresence } from 'framer-motion';
+import { isNil, throttle } from 'lodash';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import type { cell, IImageData, IProps } from './type';
@@ -19,6 +20,8 @@ import {
     MIN_DIFF,
     ROWS,
 } from './constant';
+import ImgDetail from './ImgDetail';
+import ImgMask from './ImgMask';
 import $styles from './index.module.scss';
 
 const InfiniteGallery: FC<IProps> = (props: IProps) => {
@@ -30,8 +33,11 @@ const InfiniteGallery: FC<IProps> = (props: IProps) => {
     const touchStartPos = useRef<{ x: number; y: number } | null>(null);
     // 新增最近触摸位置ref（用于计算增量）
     const lastTouchPos = useRef<{ x: number; y: number } | null>(null);
+    // 存储按下时的事件
+    const mouseDownTime = useRef<number>(0);
     // 存储需要绘制的图片信息
     const imageDataRef = useRef<IImageData[]>([]);
+    const [imgInfo, setImgInfo] = useState<IImageData | null>(null);
     const [totalWidth] = useState<number>(cols * (IMG_WIDTH + imgMargin) - imgMargin);
     const [totalHeight] = useState<number>(rows * (IMG_HEIGHT + imgMargin) - imgMargin);
     const [moveable, setMoveable] = useState<boolean>(false);
@@ -46,6 +52,7 @@ const InfiniteGallery: FC<IProps> = (props: IProps) => {
             ),
     );
     const deviceType = useDeviceType();
+    const isDeskTopDevice = useMemo(() => deviceType === DeviceEnum.DESKTOP, [deviceType]);
 
     // 绘制圆角矩形
     const drawRoundedRect = (
@@ -200,10 +207,17 @@ const InfiniteGallery: FC<IProps> = (props: IProps) => {
     };
 
     const handleCanvasMouseDown = useCallback(() => {
+        mouseDownTime.current = performance.now();
         setMoveable(true);
     }, []);
 
-    const handleCanvasMouseUp = useCallback(() => {
+    const handleCanvasMouseUp = useCallback((e: React.MouseEvent<HTMLCanvasElement>) => {
+        const { clientX, clientY } = e;
+        const duration = performance.now() - mouseDownTime.current;
+        if (duration < 200) {
+            console.log('click', clientX, clientY);
+            checkImg(clientX, clientY);
+        }
         setMoveable(false);
     }, []);
 
@@ -254,7 +268,23 @@ const InfiniteGallery: FC<IProps> = (props: IProps) => {
         setMoveable(false);
     }, []);
 
-    const isDeskTopDevice = useMemo(() => deviceType === DeviceEnum.DESKTOP, [deviceType]);
+    const checkImg = useCallback((x: number, y: number) => {
+        const list = imageDataRef.current;
+        if (isNil(list) || list.length === 0) {
+            return;
+        }
+        const img = list.find(
+            (item: IImageData) =>
+                x >= item.x && x < item.x + IMG_WIDTH && y >= item.y && y < item.y + IMG_HEIGHT,
+        );
+        if (img) {
+            setImgInfo(img);
+        }
+    }, []);
+
+    const handleClose = useCallback(() => {
+        setImgInfo(null);
+    }, []);
 
     useEffect(() => {
         const canvasEle = galleryRef.current;
@@ -292,7 +322,15 @@ const InfiniteGallery: FC<IProps> = (props: IProps) => {
                 onTouchEnd={handleTouchEnd}
                 onTouchCancel={handleTouchEnd}
             ></canvas>
+            {/* 鼠标跟随 */}
             {isDeskTopDevice ? <MouseFollow /> : <></>}
+
+            <AnimatePresence mode="wait">
+                {/* 详情遮罩 */}
+                {!!imgInfo && <ImgMask handleClose={handleClose} />}
+            </AnimatePresence>
+            {/* 查看单图 */}
+            {!!imgInfo && <ImgDetail imgData={imgInfo} />}
         </div>
     );
 };

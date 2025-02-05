@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
         });
         return config; // 返回更新后的配置
     },
+    images: {
+        domains: ['localhost'], // 允许加载 localhost 的图片
+    },
 };
 
 export default nextConfig;

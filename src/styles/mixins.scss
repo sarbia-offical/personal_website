@@ -100,7 +100,7 @@
     @include transformPixel(margin-top, 85, 40, 30);
 }
 
-// 统一文字阴影
+// 统一阴影
 @mixin textShadow {
     & {
         box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
