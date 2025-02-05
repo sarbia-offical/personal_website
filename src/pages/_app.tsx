@@ -1,9 +1,9 @@
 import type { AppProps } from 'next/app';
 
 import CapsuleNavigation from '@/components/CapsuleNavigation';
-import { AppInfoStore } from '@/zustand';
+import { Transform } from '@/components/PageTransition/Transform';
 import '@/styles/index.scss';
-import { AnimatePresence } from 'framer-motion';
+import { AppInfoStore } from '@/zustand';
 
 import $styles from './index.module.scss';
 
@@ -27,9 +27,9 @@ export default function App({ Component, pageProps, router }: AppProps) {
                         },
                     ]}
                 />
-                <AnimatePresence mode="wait">
-                    <Component key={router.route} {...pageProps} />
-                </AnimatePresence>
+                <Transform>
+                    <Component {...pageProps} />
+                </Transform>
             </AppInfoStore>
         </div>
     );

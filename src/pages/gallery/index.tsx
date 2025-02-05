@@ -24,11 +24,9 @@ const Gallery: FC = () => {
                 <meta property="og:title" content="personal website" />
                 <meta property="og:description" content="Welcome to my site" />
             </Head>
-            {/* <Inner> */}
             <div className={$styles.container}>
                 <InfiniteGallery imgData={imgData} />
             </div>
-            {/* </Inner> */}
         </>
     );
 };
