@@ -12,6 +12,7 @@
     transition: all 0.3s ease-in-out;
     border: 0;
     box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.8);
     @include mixins.textShadow();
     .img_card {
         width: 100%;
@@ -19,8 +20,5 @@
     }
 }
 .img_detail_center {
-    left: 50% !important;
-    top: 50% !important;
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    transform: translate(-50%, -50%) !important;
+    transform: translate(-50%, -50%);
 }

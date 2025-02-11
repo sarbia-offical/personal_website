@@ -5,16 +5,23 @@ import { useEffect, useMemo, useState } from 'react';
 
 import type { IImageData } from '../type';
 
+import { IMG_HEIGHT, IMG_WIDTH } from '../constant';
 import $styles from './index.module.scss';
 
 interface IProps {
-    imgData: IImageData;
+    imgInfo: IImageData;
 }
 
 const ImgDetail: FC<IProps> = (props: IProps) => {
-    const { imgData } = props;
-    const x = useMemo<number>(() => imgData.x, [imgData]);
-    const y = useMemo<number>(() => imgData.y, [imgData]);
+    const { imgInfo } = props;
+    console.log('imgInfo', imgInfo);
+    const position = useMemo<{ x: number; y: number }>(
+        () => ({
+            x: imgInfo.x,
+            y: imgInfo.y,
+        }),
+        [imgInfo],
+    );
     const [imgVisible, setImgVisible] = useState<boolean>(false);
     useEffect(() => {
         const timeoutId = setTimeout(() => {
@@ -28,13 +35,18 @@ const ImgDetail: FC<IProps> = (props: IProps) => {
         <div
             className={`${$styles.img_detail} ${imgVisible ? `${$styles.img_detail_center}` : ''}`}
             style={{
-                left: x,
-                top: y,
+                left: imgVisible ? '50%' : position.x,
+                top: imgVisible ? '50%' : position.y,
             }}
         >
             {imgVisible && (
                 <div className={$styles.img_card}>
-                    <Image src={imgData.imgSrc} width={300} height={450} alt="pic" />
+                    <Image
+                        src={imgInfo.detail.previewImageSrc}
+                        width={IMG_WIDTH}
+                        height={IMG_HEIGHT}
+                        alt="pic"
+                    />
                 </div>
             )}
         </div>

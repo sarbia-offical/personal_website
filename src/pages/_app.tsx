@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app';
 import CapsuleNavigation from '@/components/CapsuleNavigation';
 import '@/styles/index.scss';
 import { AppInfoStore } from '@/zustand';
+import { Analytics } from '@vercel/analytics/next';
 
 import $styles from './index.module.scss';
 
@@ -28,6 +29,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
                 />
                 <Component {...pageProps} />
             </AppInfoStore>
+            <Analytics />
         </div>
     );
 }

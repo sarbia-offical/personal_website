@@ -91,7 +91,7 @@ const InfiniteGallery: FC<IProps> = (props: IProps) => {
 
     // 图片网格绘制
     const drawGrid = async (ctx: CanvasRenderingContext2D) => {
-        const _imgData: IImageData[] = [];
+        const list: IImageData[] = [];
         const loadPromises = grid.flatMap((arr) =>
             arr.map(
                 ({ row, col }) =>
@@ -99,13 +99,13 @@ const InfiniteGallery: FC<IProps> = (props: IProps) => {
                         const yOffset = col % 2 === 0 ? imgMargin : -imgMargin * 2;
                         const imgIndex = row * cols + col;
                         const image = new Image();
-                        image.src = imgData[imgIndex];
+                        image.src = imgData[imgIndex].previewImageSrc;
                         image.onload = () => {
                             const x = col * (IMG_WIDTH + imgMargin);
                             const y = row * (IMG_HEIGHT + imgMargin) + yOffset;
-                            _imgData.push({
+                            list.push({
                                 img: image,
-                                imgSrc: imgData[imgIndex],
+                                detail: imgData[imgIndex],
                                 x,
                                 y,
                                 targetX: x,
@@ -118,7 +118,7 @@ const InfiniteGallery: FC<IProps> = (props: IProps) => {
             ),
         );
         await Promise.all(loadPromises);
-        imageDataRef.current = _imgData;
+        imageDataRef.current = list;
     };
 
     // 平滑移动图像
@@ -330,7 +330,7 @@ const InfiniteGallery: FC<IProps> = (props: IProps) => {
                 {!!imgInfo && <ImgMask handleClose={handleClose} />}
             </AnimatePresence>
             {/* 查看单图 */}
-            {!!imgInfo && <ImgDetail imgData={imgInfo} />}
+            {!!imgInfo && <ImgDetail imgInfo={imgInfo} />}
         </div>
     );
 };

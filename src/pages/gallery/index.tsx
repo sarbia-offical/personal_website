@@ -1,16 +1,27 @@
+import type { ImgData } from '@/components/InfiniteGallery/type';
 import type { FC } from 'react';
 
 import InfiniteGallery from '@/components/InfiniteGallery';
 import Head from 'next/head';
 import { useState } from 'react';
 
+import {
+    CloudinaryCloudName,
+    CloudinaryDomain,
+    CloudinaryResourcePath,
+    CloudinaryVersion,
+} from './constants';
 import $styles from './index.module.scss';
 
 const Gallery: FC = () => {
-    const [imgData] = useState<string[]>(
+    // mock
+    const [imgData] = useState<ImgData[]>(
         Array.from({ length: 28 })
             .fill(null)
-            .map((_, index) => `/assets/img/gallery/pic${index + 1}.webp`),
+            .map((_, index) => ({
+                previewImageSrc: `/assets/img/gallery/pic${index + 1}.webp`,
+                originImageSrc: `${CloudinaryDomain}${CloudinaryCloudName}${CloudinaryResourcePath}${CloudinaryVersion}7.jpg`,
+            })),
     );
     return (
         <>

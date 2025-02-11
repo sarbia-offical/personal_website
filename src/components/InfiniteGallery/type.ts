@@ -2,16 +2,22 @@ export interface cell {
     col: number; // x轴
     row: number; // y轴
 }
+
+export interface ImgData {
+    previewImageSrc: string;
+    originImageSrc: string;
+}
+
 export interface IProps {
     cols?: number;
     rows?: number;
     imgMargin?: number;
-    imgData: string[];
+    imgData: ImgData[];
 }
 
 export interface IImageData {
     img: HTMLImageElement;
-    imgSrc: string;
+    detail: ImgData;
     targetX: number;
     targetY: number;
     x: number;
