@@ -2,15 +2,15 @@ import type { ImgData } from '@/components/InfiniteGallery/type';
 import type { FC } from 'react';
 
 import InfiniteGallery from '@/components/InfiniteGallery';
-import Head from 'next/head';
-import { useState } from 'react';
-
 import {
     CloudinaryCloudName,
     CloudinaryDomain,
     CloudinaryResourcePath,
     CloudinaryVersion,
-} from './constants';
+} from '@/utils/constants';
+import Head from 'next/head';
+import { useState } from 'react';
+
 import $styles from './index.module.scss';
 
 const Gallery: FC = () => {
