@@ -20,7 +20,7 @@ const Gallery: FC = () => {
             .fill(null)
             .map((_, index) => ({
                 previewImageSrc: `/assets/img/gallery/pic${index + 1}.webp`,
-                originImageSrc: `${CloudinaryDomain}${CloudinaryCloudName}${CloudinaryResourcePath}${CloudinaryVersion}7.jpg`,
+                originImageSrc: `${CloudinaryDomain}${CloudinaryCloudName}${CloudinaryResourcePath}${CloudinaryVersion}${index + 1}.jpg`,
             })),
     );
     return (

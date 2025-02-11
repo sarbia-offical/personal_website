@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import $styles from './index.module.scss';
 
 interface IProps {
-    handleClose: () => void;
+    handleClose?: () => void;
 }
 
 const ImgMask: FC<IProps> = (props: IProps) => {

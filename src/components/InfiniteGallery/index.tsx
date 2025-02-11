@@ -327,10 +327,10 @@ const InfiniteGallery: FC<IProps> = (props: IProps) => {
 
             <AnimatePresence mode="wait">
                 {/* 详情遮罩 */}
-                {!!imgInfo && <ImgMask handleClose={handleClose} />}
+                {!!imgInfo && <ImgMask />}
             </AnimatePresence>
             {/* 查看单图 */}
-            {!!imgInfo && <ImgDetail imgInfo={imgInfo} />}
+            {!!imgInfo && <ImgDetail imgInfo={imgInfo} handleClose={handleClose} />}
         </div>
     );
 };
