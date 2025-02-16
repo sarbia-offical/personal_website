@@ -1,12 +1,7 @@
+import type { cell, IImageData, IProps } from '@/types/InfiniteGallery.types';
 import type { FC } from 'react';
 
 import MouseFollow from '@/components/MouseFollow';
-import { AnimatePresence } from 'framer-motion';
-import { isNil, throttle } from 'lodash';
-import { useCallback, useEffect, useRef, useState } from 'react';
-
-import type { cell, IImageData, IProps } from './type';
-
 import {
     BORDER_RADIUS,
     COLS,
@@ -19,7 +14,11 @@ import {
     MAX_DIFF,
     MIN_DIFF,
     ROWS,
-} from './constant';
+} from '@/constants/InfiniteGallery.constants';
+import { AnimatePresence } from 'framer-motion';
+import { isNil, throttle } from 'lodash';
+import { useCallback, useEffect, useRef, useState } from 'react';
+
 import ImgDetail from './ImgDetail';
 import ImgMask from './ImgMask';
 import $styles from './index.module.scss';

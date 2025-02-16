@@ -1,3 +1,4 @@
+import type { HrefList, IHrefProps } from '@/types/capsuleNavigation.types';
 import type { AppInfoState } from '@/zustand/type';
 import type { FC, ReactNode } from 'react';
 
@@ -6,8 +7,6 @@ import { CursorPointType } from '@/zustand/type';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
-
-import type { HrefList, IHrefProps } from './type';
 
 import $styles from './index.module.scss';
 

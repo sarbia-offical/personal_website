@@ -1,9 +1,9 @@
+import type { DragOverlayWrapperProps } from '@/types/dragRect.types';
+
 import { DragOverlay } from '@dnd-kit/core';
 import { useEffect, useState } from 'react';
 // DragOverlayWrapper.tsx
 import { createPortal } from 'react-dom';
-
-import type { DragOverlayWrapperProps } from './type';
 
 const DragOverlayWrapper: React.FC<DragOverlayWrapperProps> = (props: DragOverlayWrapperProps) => {
     const { children, ...otherProps } = props;

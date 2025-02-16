@@ -1,12 +1,11 @@
+import type { IImageData } from '@/types/InfiniteGallery.types';
 import type { FC } from 'react';
 
+import { IMG_HEIGHT, IMG_WIDTH } from '@/constants/InfiniteGallery.constants';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React, { useCallback, useMemo, useState } from 'react';
 
-import type { IImageData } from '../type';
-
-import { IMG_HEIGHT, IMG_WIDTH } from '../constant';
 import $styles from './index.module.scss';
 
 interface IProps {

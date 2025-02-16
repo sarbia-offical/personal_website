@@ -1,4 +1,4 @@
-import type { ImgData } from '@/pages/gallery/components/InfiniteGallery/type';
+import type { ImgData } from '@/types/InfiniteGallery.types';
 import type { FC } from 'react';
 
 import InfiniteGallery from '@/pages/gallery/components/InfiniteGallery';

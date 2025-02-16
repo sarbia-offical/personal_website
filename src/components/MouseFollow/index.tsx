@@ -1,3 +1,4 @@
+import type { ICursor, ILastCursor } from '@/types/mouseFollow.types';
 import type { AppInfoState } from '@/zustand/type';
 
 import { lerp } from '@/utils';
@@ -6,8 +7,6 @@ import { CursorPointType } from '@/zustand/type';
 import { useMouse } from 'ahooks';
 import _ from 'lodash';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
-
-import type { ICursor, ILastCursor } from './type';
 
 import $styles from './index.module.scss';
 

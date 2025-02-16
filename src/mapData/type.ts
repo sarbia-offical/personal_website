@@ -1,4 +1,4 @@
-import type { SizeEnum } from '@/pages/about/components/ContainerBox/constant';
+import type { SizeEnum } from '@/constants/containerBox.constants';
 
 type options = Partial<{
     [key: string]: {

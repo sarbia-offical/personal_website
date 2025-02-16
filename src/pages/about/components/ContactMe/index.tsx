@@ -4,7 +4,7 @@ import { useInViewport } from 'ahooks';
 import { motion } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
 
-import type { IComponentProps } from '../mapData/type';
+import type { IComponentProps } from '../../../../mapData/type';
 
 import BoxHeader from '../BoxHeader';
 import BoxListComponent from './BoxListComponent';

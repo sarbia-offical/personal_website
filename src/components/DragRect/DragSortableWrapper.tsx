@@ -1,6 +1,6 @@
-import { SortableContext } from '@dnd-kit/sortable';
+import type { SortableWrapperProps } from '@/types/dragRect.types';
 
-import type { SortableWrapperProps } from './type';
+import { SortableContext } from '@dnd-kit/sortable';
 
 const SortableWrapper: React.FC<SortableWrapperProps> = (props: SortableWrapperProps) => {
     const { items, children, ...otherProps } = props;

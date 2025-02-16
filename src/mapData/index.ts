@@ -1,8 +1,13 @@
 import type React from 'react';
 
-import type { IComponentProps } from './type';
+import AboutMe from '@/pages/about/components/AboutMe';
+import ContactMe from '@/pages/about/components/ContactMe';
+import DragBox from '@/pages/about/components/DragBox';
+import LightText from '@/pages/about/components/LightText';
+import MusicPlayer from '@/pages/about/components/MusicPlayer';
+import WaterFall from '@/pages/about/components/WaterFall';
 
-import { AboutMe, ContactMe, DragBox, LightText, MusicPlayer, WaterFall } from '..';
+import type { IComponentProps } from './type';
 
 interface ICubeComponentList {
     key: string;
