@@ -10,7 +10,8 @@
         "moduleResolution": "bundler",
         "paths": {
             "@/*": ["./src/*"],
-            "@@/*": ["./*"]
+            "@@/*": ["./*"],
+            "@styles/*": ["./src/styles/*"]
         },
         "resolveJsonModule": true,
         "allowJs": true,

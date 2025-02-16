@@ -1,5 +1,8 @@
 import deepmerge from 'deepmerge';
 
+import { MOBILE_DEVICES } from './constants';
+import { DeviceEnum } from './type';
+
 /**
  * 线性插值函数，用作平滑过渡
  * @param a 起始值
@@ -32,4 +35,24 @@ const deepMerge = <T1, T2>(
     return deepmerge(x, y, options);
 };
 
-export { deepMerge, lerp };
+const getDeviceType = (): DeviceEnum => {
+    if (typeof window === 'undefined') return DeviceEnum.DESKTOP;
+    const userAgent = navigator.userAgent.toLowerCase();
+    const width = window.innerWidth;
+    let deviceType: DeviceEnum = DeviceEnum.DESKTOP;
+    const includeMobileDevice = MOBILE_DEVICES.some((ele: string) => userAgent.includes(ele));
+    if (!includeMobileDevice) {
+        deviceType = DeviceEnum.DESKTOP;
+    } else {
+        if (width <= 768) {
+            deviceType = DeviceEnum.MOBILE;
+        } else if (width <= 1024) {
+            deviceType = DeviceEnum.TABLET;
+        }
+    }
+    return deviceType;
+};
+
+const isMobileDevice = (): boolean => getDeviceType() === DeviceEnum.DESKTOP;
+
+export { deepMerge, getDeviceType, isMobileDevice, lerp };

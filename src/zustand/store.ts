@@ -5,7 +5,7 @@ import { createStore } from 'zustand';
 import { devtools, persist, subscribeWithSelector } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 
-import type { AppInfoOptions, AppInfoState, Position } from './type';
+import type { AppInfoOptions, AppInfoState } from './type';
 
 import { CursorPointType } from './type';
 
@@ -18,10 +18,6 @@ export const createAppStore = (options: DeepPartial<AppInfoOptions> = {}) => {
                         (set) => ({
                             ...deepMerge<AppInfoOptions, DeepPartial<AppInfoOptions>>(
                                 {
-                                    position: {
-                                        left: -1,
-                                        top: -1,
-                                    },
                                     dragStatus: false,
                                     pointerStatus: CursorPointType.normal,
                                 },
@@ -30,11 +26,6 @@ export const createAppStore = (options: DeepPartial<AppInfoOptions> = {}) => {
                             ),
                             changeDragStatus: (value: boolean) =>
                                 set(() => ({ dragStatus: value })),
-                            changePosition: (value: Position) =>
-                                set((state: AppInfoState) => {
-                                    state.position.left = value.left;
-                                    state.position.top = value.top;
-                                }),
                             changePointerStatus: (value: CursorPointType) =>
                                 set((state: AppInfoState) => {
                                     state.pointerStatus = value;

@@ -20,15 +20,12 @@ export const perspective = {
 export const slide = {
     initial: {
         y: '100vh',
-        opacity: 0,
     },
     enter: {
         y: '100vh',
-        opacity: 1,
     },
     exit: {
         y: '0',
-        opacity: 1,
         transition: {
             duration: 0.5,
             ease: [0.76, 0, 0.24, 1],

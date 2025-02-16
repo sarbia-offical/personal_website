@@ -1,0 +1,88 @@
+@use '@styles/mixins.scss' as mixins;
+
+.top {
+    position: relative;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, var(--themeColor) 0%, var(--background) 100%);
+    & {
+        @include mixins.df-aic-jcc();
+    }
+    &_lines {
+        position: absolute;
+        width: 100vw;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+        & > div {
+            position: absolute;
+            width: 120vw;
+            background: linear-gradient(90deg, #00000000, #ab352a);
+            background-size: 200% 200%;
+            background-position: 0% 0;
+            animation: move_line 10s linear infinite;
+            @include mixins.transformPixel(height, 1, 1, 1);
+        }
+        & > div:first-child {
+            top: 10%;
+            transform: rotate(-20deg);
+        }
+        & > div:nth-child(2) {
+            left: -50%;
+            transform: rotate(-60deg);
+            animation-delay: -2s;
+            @include mixins.mobile {
+                & {
+                    display: none;
+                }
+            }
+        }
+        & > div:nth-child(3) {
+            left: 5%;
+            top: 15%;
+            transform: rotate(30deg);
+            animation-delay: -5s;
+        }
+        & > div:nth-child(4) {
+            bottom: 20%;
+            transform: rotate(-5deg);
+            animation-delay: 5s;
+        }
+        & {
+            @include mixins.df-aic-jcc();
+        }
+    }
+    @keyframes move_line {
+        0% {
+            background-position: 200% 0;
+        }
+
+        to {
+            background-position: 0 0;
+        }
+    }
+    &_inner {
+        text-align: center;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+        transition: all 0.5s ease;
+        @include mixins.fontMax(bold);
+        @include mixins.transformPixel(max-width, 1500, 750, 360);
+        &_title {
+            &:nth-child(2) {
+                color: var(--themeColor);
+                transition: all 0.2s linear;
+                &:hover {
+                    & {
+                        @include mixins.textShadow();
+                    }
+                }
+                text-shadow:
+                    calc(2px * cos(15deg)) calc(2px * sin(15deg)) 1px var(--foreground),
+                    1px 1px 1px var(--foreground),
+                    1px 1px 1px var(--foreground),
+                    1px 1px 1px var(--foreground);
+            }
+        }
+    }
+}

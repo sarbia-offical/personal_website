@@ -1,0 +1,41 @@
+@use '@styles/mixins' as mixins;
+.item {
+    box-sizing: border-box;
+    color: #171717;
+    @include mixins.transformPixel(padding, 7, 5, 3);
+    &_inner {
+        position: relative; /* relative */
+        width: 100%;
+        height: 100%;
+        border: 1px solid #dedede;
+        background-color: var(--foreground);
+        overflow: hidden;
+        box-shadow: 0 1px 2px #0000001a; /* shadow */
+        @include mixins.transformPixel(border-radius, 30, 20, 10);
+        @include mixins.transformPixel(padding, 30, 20, 10);
+    }
+}
+
+.drag_grab {
+    cursor: grab;
+    touch-action: manipulation;
+}
+.drag_grabbing {
+    cursor: grabbing;
+    & > .item_inner {
+        border: 1px dotted #232222;
+    }
+}
+
+.item_small {
+    @include mixins.transformPixel(width, 375, 375, 180);
+    @include mixins.transformPixel(height, 375, 375, 180);
+}
+.item_middle {
+    @include mixins.transformPixel(width, 750, 375, 180);
+    @include mixins.transformPixel(height, 375, 375, 180);
+}
+.item_large {
+    @include mixins.transformPixel(width, 1500, 750, 360);
+    @include mixins.transformPixel(height, 550, 375, 180);
+}
