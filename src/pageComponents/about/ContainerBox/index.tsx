@@ -1,9 +1,9 @@
+import type { IComponentProps } from '@/mapData/type';
+
+import { getCubecomponentListById } from '@/mapData';
 import cubeList from '@/mock/cubeList';
 import { useState } from 'react';
 
-import type { IComponentProps } from '../../../../mapData/type';
-
-import { getCubecomponentListById } from '../../../../mapData';
 import $styles from './index.module.scss';
 import RectItem from './RectItem';
 

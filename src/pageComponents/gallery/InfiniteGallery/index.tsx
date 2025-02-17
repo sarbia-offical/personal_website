@@ -19,8 +19,8 @@ import { AnimatePresence } from 'framer-motion';
 import { isNil, throttle } from 'lodash';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import ImgDetail from './ImgDetail';
-import ImgMask from './ImgMask';
+import ImgDetail from '../ImgDetail';
+import ImgMask from '../ImgMask';
 import $styles from './index.module.scss';
 
 const InfiniteGallery: FC<IProps> = (props: IProps) => {

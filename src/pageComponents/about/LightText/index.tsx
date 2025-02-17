@@ -1,11 +1,10 @@
+import type { IComponentProps } from '@/mapData/type';
 import type { FC } from 'react';
 
-import type { IComponentProps } from '../../../../mapData/type';
-
-const WaterFall: FC<IComponentProps> = (props: IComponentProps) => {
+const LightText: FC<IComponentProps> = (props: IComponentProps) => {
     return (
         <div>
-            water fall
+            light text
             <p>
                 <span style={{ fontStyle: 'italic', color: 'red' }}>{'Ciallo～(∠・ω< )⌒☆'}</span>
             </p>
@@ -13,4 +12,4 @@ const WaterFall: FC<IComponentProps> = (props: IComponentProps) => {
     );
 };
 
-export default WaterFall;
+export default LightText;

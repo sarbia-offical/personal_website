@@ -1,11 +1,11 @@
 import type React from 'react';
 
-import AboutMe from '@/pages/about/components/AboutMe';
-import ContactMe from '@/pages/about/components/ContactMe';
-import DragBox from '@/pages/about/components/DragBox';
-import LightText from '@/pages/about/components/LightText';
-import MusicPlayer from '@/pages/about/components/MusicPlayer';
-import WaterFall from '@/pages/about/components/WaterFall';
+import AboutMe from '@/pageComponents/about/AboutMe';
+import ContactMe from '@/pageComponents/about/ContactMe';
+import DragBox from '@/pageComponents/about/DragBox';
+import LightText from '@/pageComponents/about/LightText';
+import MusicPlayer from '@/pageComponents/about/MusicPlayer';
+import WaterFall from '@/pageComponents/about/WaterFall';
 
 import type { IComponentProps } from './type';
 

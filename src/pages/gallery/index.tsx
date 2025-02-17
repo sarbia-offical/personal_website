@@ -1,7 +1,7 @@
 import type { ImgData } from '@/types/InfiniteGallery.types';
 import type { FC } from 'react';
 
-import InfiniteGallery from '@/pages/gallery/components/InfiniteGallery';
+import InfiniteGallery from '@/pageComponents/gallery/InfiniteGallery';
 import { isMobileDevice } from '@/utils';
 import {
     CloudinaryCloudName,

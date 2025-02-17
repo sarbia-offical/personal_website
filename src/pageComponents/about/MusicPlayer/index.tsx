@@ -1,6 +1,5 @@
+import type { IComponentProps } from '@/mapData/type';
 import type { FC } from 'react';
-
-import type { IComponentProps } from '../../../../mapData/type';
 
 import $styles from './index.module.scss';
 

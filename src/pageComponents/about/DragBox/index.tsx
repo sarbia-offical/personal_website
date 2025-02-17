@@ -1,9 +1,8 @@
+import type { IComponentProps } from '@/mapData/type';
 import type { FC } from 'react';
 
 import { useInViewport } from 'ahooks';
 import { useRef } from 'react';
-
-import type { IComponentProps } from '../../../../mapData/type';
 
 import Container from './Container';
 import $styles from './index.module.scss';

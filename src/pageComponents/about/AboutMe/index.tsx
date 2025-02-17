@@ -1,10 +1,9 @@
+import type { IComponentProps } from '@/mapData/type';
 import type { FC } from 'react';
 
 import { isNil } from 'lodash';
 import Link from 'next/link';
 import React, { forwardRef, useMemo } from 'react';
-
-import type { IComponentProps } from '../../../../mapData/type';
 
 import ContentArea from './ContentArea';
 import $styles from './index.module.scss';

@@ -1,10 +1,10 @@
 import MouseFollow from '@/components/MouseFollow';
+import ContainerBox from '@/pageComponents/about/ContainerBox';
+import Top from '@/pageComponents/about/Top';
 import { isMobileDevice } from '@/utils';
 import Head from 'next/head';
 import { type FC, useEffect, useState } from 'react';
 
-import ContainerBox from './components/ContainerBox';
-import Top from './components/Top';
 import $styles from './index.module.scss';
 
 const About: FC = () => {

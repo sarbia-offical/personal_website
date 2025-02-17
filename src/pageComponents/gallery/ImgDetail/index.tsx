@@ -17,8 +17,8 @@ const ImgDetail: FC<IProps> = (props: IProps) => {
     const { imgInfo, handleClose } = props;
     const position = useMemo<{ x: number; y: number }>(
         () => ({
-            x: imgInfo.x,
-            y: imgInfo.y,
+            x: imgInfo?.x ?? 0,
+            y: imgInfo?.y ?? 0,
         }),
         [imgInfo],
     );
@@ -51,6 +51,9 @@ const ImgDetail: FC<IProps> = (props: IProps) => {
                     left: '50%',
                     top: '50%',
                     transform: `translateX(-50%) translateY(-50%)`,
+                    transition: {
+                        delay: 0.2,
+                    },
                 }}
                 exit={{
                     left: position.x,
@@ -64,7 +67,7 @@ const ImgDetail: FC<IProps> = (props: IProps) => {
                     onClick={handleClick}
                 >
                     <Image
-                        src={imgInfo.detail.previewImageSrc}
+                        src={imgInfo?.detail?.previewImageSrc || ''}
                         width={IMG_WIDTH}
                         height={IMG_HEIGHT}
                         alt="pic"
@@ -74,7 +77,7 @@ const ImgDetail: FC<IProps> = (props: IProps) => {
                     className={`${$styles.img_card_reverse} ${isReverse ? $styles.normal_img : $styles.reverse_img}`}
                     onClick={handleClick}
                 >
-                    <img src={imgInfo.detail.originImageSrc} />
+                    <img src={imgInfo?.detail?.originImageSrc || ''} />
                 </div>
             </motion.div>
         </div>
