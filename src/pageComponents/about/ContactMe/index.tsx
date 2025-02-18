@@ -17,7 +17,7 @@ export interface IList {
     path: string;
 }
 
-const ContactMe: FC<IComponentProps> = (props: IComponentProps) => {
+const ContactMe: FC<IComponentProps> = ({ options }: IComponentProps) => {
     const contactMeRef = useRef<HTMLDivElement>(null);
     const [boxHeaderTitle] = useState<string>('Social Accounts');
     const [inViewport, ratio] = useInViewport(() => contactMeRef.current, {
@@ -28,13 +28,13 @@ const ContactMe: FC<IComponentProps> = (props: IComponentProps) => {
     const [list, setList] = useState<IList[][]>([]);
 
     useEffect(() => {
-        const items = (props?.options || {}).list?.value;
+        const items = (options || {}).list?.value;
         const groupData: IList[][] = [];
         for (let i = 0; i < items.length; i += 2) {
             groupData.push(items.slice(i, i + 2));
         }
         setList(groupData);
-    }, [props]);
+    }, [options]);
     return (
         <div className={$styles.contact_me} ref={contactMeRef}>
             {inViewport ? (

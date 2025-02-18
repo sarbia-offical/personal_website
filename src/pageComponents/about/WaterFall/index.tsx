@@ -1,7 +1,7 @@
 import type { IComponentProps } from '@/mapData/type';
 import type { FC } from 'react';
 
-const WaterFall: FC<IComponentProps> = (props: IComponentProps) => {
+const WaterFall: FC<IComponentProps> = () => {
     return (
         <div>
             water fall

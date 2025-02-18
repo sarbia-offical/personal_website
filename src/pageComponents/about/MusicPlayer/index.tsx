@@ -3,7 +3,7 @@ import type { FC } from 'react';
 
 import $styles from './index.module.scss';
 
-const MusicPlayer: FC<IComponentProps> = (props: IComponentProps) => {
+const MusicPlayer: FC<IComponentProps> = () => {
     return (
         <div className={$styles.musicPlayer}>
             <p>music player</p>

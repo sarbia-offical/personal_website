@@ -1,7 +1,7 @@
 import type { IComponentProps } from '@/mapData/type';
 import type { FC } from 'react';
 
-const LightText: FC<IComponentProps> = (props: IComponentProps) => {
+const LightText: FC<IComponentProps> = () => {
     return (
         <div>
             light text

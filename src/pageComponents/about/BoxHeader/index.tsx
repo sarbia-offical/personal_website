@@ -8,8 +8,8 @@ export interface IProps {
     title: string;
 }
 
-const BoxHeader: FC<IProps> = (props: IProps) => {
-    return <p className={$styles.header}>{props.title}</p>;
+const BoxHeader: FC<IProps> = ({ title }: IProps) => {
+    return <p className={$styles.header}>{title}</p>;
 };
 
 export default BoxHeader;

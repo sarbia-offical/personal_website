@@ -7,7 +7,7 @@ import { useRef } from 'react';
 import Container from './Container';
 import $styles from './index.module.scss';
 
-const DragBox: FC<IComponentProps> = (props: IComponentProps) => {
+const DragBox: FC<IComponentProps> = () => {
     const dragBoxRef = useRef<HTMLDivElement>(null);
     const [inViewport] = useInViewport(() => dragBoxRef.current, {
         threshold: Array.from({ length: 10 })

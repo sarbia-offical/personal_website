@@ -22,22 +22,21 @@ const ImgDetail: FC<IProps> = (props: IProps) => {
         }),
         [imgInfo],
     );
+    const [imgVisible, setImgVisible] = useState<boolean>(false);
     const [isReverse, setIsReverse] = useState<boolean>(false);
 
     const handleClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
         setIsReverse((prevIsReverse) => !prevIsReverse);
+        !imgVisible && setImgVisible(true);
         e.stopPropagation();
     }, []);
 
-    const bundleClose = useCallback(
-        (e: React.MouseEvent<HTMLDivElement>) => {
-            if (isReverse) {
-                setIsReverse((prevIsReverse) => !prevIsReverse);
-            }
-            handleClose();
-        },
-        [isReverse],
-    );
+    const bundleClose = useCallback(() => {
+        if (isReverse) {
+            setIsReverse((prevIsReverse) => !prevIsReverse);
+        }
+        handleClose();
+    }, [isReverse]);
 
     return (
         <div className={$styles.img_detail} onClick={bundleClose}>
@@ -73,13 +72,13 @@ const ImgDetail: FC<IProps> = (props: IProps) => {
                         alt="pic"
                     />
                 </div>
-                <div
-                    className={`${$styles.img_card_reverse} ${isReverse ? $styles.normal_img : $styles.reverse_img}`}
-                    onClick={handleClick}
-                >
-                    <img src={imgInfo?.detail?.originImageSrc || ''} />
-                </div>
             </motion.div>
+            <div
+                className={`${$styles.img_reverse} ${isReverse ? $styles.normal_img : $styles.reverse_img}`}
+                onClick={handleClick}
+            >
+                {imgVisible && <img src={imgInfo?.detail?.originImageSrc ?? ''} />}
+            </div>
         </div>
     );
 };
