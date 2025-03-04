@@ -1,0 +1,23 @@
+@use '@styles/mixins' as mixins;
+.sort_table {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    @include mixins.transformPixel(max-width, 1500, 750, 360);
+    @include mixins.mTop();
+    @include mixins.transformPixel(padding-bottom, 85, 60, 60);
+}
+
+.sort_table_cursor_point {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9;
+}
+
+.sort_table_cursor_point img {
+    will-change: transform;
+    transition: all 0.1s linear;
+}

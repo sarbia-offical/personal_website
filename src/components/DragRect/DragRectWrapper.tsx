@@ -1,9 +1,8 @@
+import type { DndWrapperProps } from '@/types/dragRect.types';
 import type { FC } from 'react';
 
 import { DndContext, MouseSensor, TouchSensor, useSensor, useSensors } from '@dnd-kit/core';
 import React from 'react';
-
-import type { DndWrapperProps } from './type';
 
 const DragRectWrapper: FC<DndWrapperProps> = (props: DndWrapperProps) => {
     const { children, onDragStart, onDragOver, onDragEnd, onDragCancel, ...otherProps } = props;

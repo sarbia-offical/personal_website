@@ -1,8 +1,3 @@
-export interface Position {
-    left: number;
-    top: number;
-}
-
 export enum CursorPointType {
     'HideCursorPoint',
     'LongPress',
@@ -15,13 +10,11 @@ export enum CursorPointType {
  * hideCursorPoint 隐藏光标状态
  */
 export interface AppInfoOptions {
-    position: Position;
     dragStatus: boolean;
     pointerStatus: CursorPointType;
 }
 
 export interface AppInfoActions {
-    changePosition: (value: Position) => void;
     changeDragStatus: (value: boolean) => void;
     changePointerStatus: (value: CursorPointType) => void;
 }

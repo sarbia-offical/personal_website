@@ -11,7 +11,16 @@ const nextConfig: NextConfig = {
         return config; // 返回更新后的配置
     },
     images: {
-        domains: ['localhost', 'res.cloudinary.com'], // 允许加载 localhost 的图片
+        remotePatterns: [
+            {
+                protocol: 'http',
+                hostname: 'localhost',
+            },
+            {
+                protocol: 'https',
+                hostname: 'res.cloudinary.com',
+            },
+        ],
     },
 };
 

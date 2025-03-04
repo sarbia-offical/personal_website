@@ -16,6 +16,7 @@
         "@dnd-kit/modifiers": "^9.0.0",
         "@dnd-kit/sortable": "^10.0.0",
         "@dnd-kit/utilities": "^3.2.2",
+        "@radix-ui/react-toast": "^1.2.6",
         "@vercel/analytics": "^1.5.0",
         "ahooks": "^3.8.4",
         "deepmerge": "^4.3.1",

@@ -1,16 +1,17 @@
-import ContainerBox from '@/components/ContainerBox';
 import MouseFollow from '@/components/MouseFollow';
-import { DeviceEnum } from '@/hooks/type';
-import { useDeviceType } from '@/hooks/useDeviceType';
+import ContainerBox from '@/pageComponents/about/ContainerBox';
+import Top from '@/pageComponents/about/Top';
+import { isMobileDevice } from '@/utils';
 import Head from 'next/head';
-import { type FC, useMemo } from 'react';
+import { type FC, useEffect, useState } from 'react';
 
 import $styles from './index.module.scss';
-import Top from './top';
 
 const About: FC = () => {
-    const deviceType = useDeviceType();
-    const isDeskTopDevice = useMemo(() => deviceType === DeviceEnum.DESKTOP, [deviceType]);
+    const [isDeskTopDevice, setIsDeskTopDevice] = useState<boolean>(false);
+    useEffect(() => {
+        setIsDeskTopDevice(isMobileDevice());
+    }, []);
     return (
         <>
             <Head>

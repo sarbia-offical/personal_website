@@ -24,7 +24,7 @@ const cubeList = {
                 options: {
                     text: {
                         // "value": 'I have 6 years of front-end development experience. Based in Changsha, from Hunan, China. Tech stack: JavaScript (ES6), TypeScript, React.js, Next.js, Zustand, Nest.js, TypeORM, and more.',
-                        value: "Hi, I have 6 years of front-end experience, based in Changsha/CN. I've developed the official websites of [0], websites of [1], and the overseas SaaS of [2]. Skilled in web development.",
+                        value: "Hi, I have 6 years of front-end experience, based in Changsha/CN. I've developed the official websites of   [0], websites of [1], and the overseas SaaS of [2]. Skilled in web development.",
                         hide: false,
                     },
                     link: {

@@ -1,0 +1,16 @@
+@use '@styles/mixins' as mixins;
+
+.header {
+    background-color: #ffffff;
+    margin: 0 auto;
+    user-select: none;
+    width: 100%;
+    & {
+        @include mixins.transformPixel(margin-bottom, 5, 5, 2);
+        @include mixins.transformPixel(height, 55, 50, 25);
+        @include mixins.df-aic-jcc();
+        @include mixins.textShadow();
+        @include mixins.transformPixel(border-radius, 30, 20, 10);
+        @include mixins.fontSmall();
+    }
+}
