@@ -2,7 +2,6 @@ import type { AppProps } from 'next/app';
 
 import CapsuleNavigation from '@/components/CapsuleNavigation';
 import '@/styles/index.scss';
-import { Transform } from '@/components/PageTransition/Transform';
 import { AppInfoStore } from '@/zustand';
 import { Analytics } from '@vercel/analytics/next';
 
@@ -28,9 +27,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
                         },
                     ]}
                 />
-                <Transform>
-                    <Component key={router.route} {...pageProps} />
-                </Transform>
+                <Component key={router.route} {...pageProps} />
             </AppInfoStore>
             <Analytics />
         </div>
